@@ -45,7 +45,7 @@ namespace Amazon.Controllers
             decimal TotalPrice = books.TotalPriceExtension();
             ViewBag.TotalPrice = TotalPrice;
             return View(books);
-        }
+        }   
 
             public IActionResult About()
         {

@@ -21,14 +21,17 @@ namespace Amazon.Models
             books.Add(book);
         }
         public static List<Book> FillBooks()
-        { Book book1 = new Book()
+        {
+          if (!books.Any()) //ANY verifica si contiene elementos
+          {
+            Book book1 = new Book()
             {
                 ISBN = "123456789",
                 Author = "Giancarlo G",
                 NroPages = 210, Price = 270,
                 Title = "How to Program ASP.NET MVC"
             };
-          Book book2 = new Book()
+            Book book2 = new Book()
             {
                 ISBN = "521648597",
                 Author = "Giancarlo G",
@@ -36,9 +39,20 @@ namespace Amazon.Models
                 Price = 3000,
                 Title = "How to Program C#"
             };
+            Book book3 = new Book()
+            {
+                ISBN = "5365648597",
+                Author = "carlo G",
+                NroPages = 3200,
+                Price = 3000,
+                Title = "How to Program C#",
+                LevelStock = LevelStock.SoldOut
+            };
             books.Add(book1);
             books.Add(book2);
+            books.Add(book3);
             books.Add(null);
+          }
             return books;
         }
         public static decimal TotalPrice()

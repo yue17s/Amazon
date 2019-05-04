@@ -1,15 +1,10 @@
 ﻿
 @{
-    Layout = null; //desactiva la vista
+    Layout = "_Layout"; //desactiva la vista
     ViewData["Title"] = "MyView";
 
 }
-<html>
-<head>
-    <title>Index</title>
-    <link rel="stylesheet" href="~/vendor/bootstrap/dist/css/bootstrap.css " />
-</head>
-<body>
+
     <div class="text-center">
         <h3>Bienvenido a AMAZON, tu tienda virtual de libros.</h3>
         <h4>
@@ -18,8 +13,6 @@
         <a class="btn btn-primary" asp-action="RegBookForm">Registrar un Libro ahora</a>
     </div>
     <p>Click <a class="nav-link" asp-action="ListResponses">here</a>para ver la lista de Libros.</p>
-</body>
-</html>
 
 @ViewBag.Greeting World (from the view)
 <!----C#--------- ----- HTML --------->

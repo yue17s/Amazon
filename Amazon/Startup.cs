@@ -43,7 +43,7 @@ namespace Amazon
             if (env.IsDevelopment())
             {
                 
-                app.UseDeveloperExceptionPage();
+                app.UseDeveloperExceptionPage(); // solo para el entorno de desarrollo no para produccion
                 app.UseStaticFiles(new StaticFileOptions() // Proveer WWROOT para usar con el nombre /vendor
                 {
                     FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"node_modules")),
