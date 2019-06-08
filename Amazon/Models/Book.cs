@@ -7,6 +7,7 @@ namespace Amazon.Models
 {
     public class Book
     {
+        public Guid BookId { get; set; }
         [Required(ErrorMessage ="Porfavor ingresa un ISBN")]
         public string ISBN { get; set; }
         [Required(ErrorMessage = "Porfavor ingresa un titulo")]
@@ -18,7 +19,6 @@ namespace Amazon.Models
         public decimal? Price { get; set; }
         [Required(ErrorMessage = "Porfavor ingresa un Nro de Paginas")]
         public int? NroPages { get; set; }
-
         public LevelStock LevelStock { get; set; } = LevelStock.InStock;
     }
 }

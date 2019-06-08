@@ -1,28 +1,28 @@
 using Amazon.Models;
-using System;
-using System.Linq;
 using Xunit;
-
-namespace Amazon.UnitTests
+namespace Amazon.Test
 {
-    public class BookRepositoryTest
+    public class BookTests
     {
         [Fact]
-        public void NewBook_ShouldBeAdded()
+        public void CanChangeBookTitle()
         {
-            //Arrange
-            Book newBook = new Book()
-            {
-                Title = "Title 1",
-                Author = "Author1",
-                ISBN = "ISBN1",
-                NroPages = 200,
-                Price = 100
-            };
+            //Arange
+            var p = new Book() { Title = "Test", Price = 200 };
             //Act
-            BookRepository.AddResponse(newBook);
+            p.Title = "New Title";
             //Assert
-            Assert.Equal("Title 1", BookRepository.Books.FirstOrDefault().Title);
+            Assert.Equal("New Title", p.Title);
+        }
+        [Fact]
+        public void CanChangeBookPrice()
+        {
+            //Arange
+            var p = new Book() { Title = "Test", Price = 200 };
+            //Act
+            p.Price = 300;
+            //Assert
+            Assert.Equal(300, p.Price);
         }
     }
 }
