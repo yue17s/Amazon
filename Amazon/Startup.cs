@@ -69,12 +69,29 @@ namespace Amazon
                     @"node_modules")),
                 RequestPath = new PathString("/vendor")
             });
-            /*app.UseMvc(routes =>
+            app.UseStaticFiles();
+            app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });*/
+                name: null,
+                template: "{category}/Page{bookPage:int}",
+                defaults: new { controller = "Book", action = "List" });
+                routes.MapRoute(
+                name: null,
+                template: "Page{bookPage:int}",
+                defaults: new { controller = "Book", action = "List", bookPage = 1 });
+                routes.MapRoute(
+                name: null,
+                template: "{category}",
+                defaults: new { controller = "Book", action = "List", bookPage = 1 });
+                routes.MapRoute(
+                name: null,
+                template: "",
+                defaults: new { controller = "Book", action = "List", bookPage = 1 });
+                routes.MapRoute(
+                name: null,
+                template: "{controller}/{action}/{id?}");
+            });
             SeedData.EnsurePopulated(app);
         }
     }
